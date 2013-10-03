@@ -264,6 +264,12 @@ function imagex_content_inappropriate_views_default_views() {
   $handler->display->display_options['style_options']['override'] = FALSE;
   $handler->display->display_options['style_options']['sticky'] = TRUE;
   $handler->display->display_options['style_options']['order'] = 'desc';
+  /* Header: Global: Text area */
+  $handler->display->display_options['header']['area']['id'] = 'area';
+  $handler->display->display_options['header']['area']['table'] = 'views';
+  $handler->display->display_options['header']['area']['field'] = 'area';
+  $handler->display->display_options['header']['area']['content'] = 'Below is a list of all content which have been "flagged as inappropriate" by site users.';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['text']['id'] = 'area';
   $handler->display->display_options['empty']['text']['table'] = 'views';
@@ -482,11 +488,12 @@ function imagex_content_inappropriate_views_default_views() {
   /* Display: Flagged as inappropriate (nodes) */
   $handler = $view->new_display('page', 'Flagged as inappropriate (nodes)', 'page');
   $handler->display->display_options['path'] = 'admin/content/flagged/nodes';
-  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['type'] = 'default tab';
   $handler->display->display_options['menu']['title'] = 'Flagged Content';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $handler->display->display_options['tab_options']['weight'] = '0';
   $export['imagex_flagged_as_inappropriate_nodes'] = $view;
 
   return $export;
