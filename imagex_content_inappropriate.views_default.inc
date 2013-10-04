@@ -70,10 +70,11 @@ function imagex_content_inappropriate_views_default_views() {
   $handler->display->display_options['header']['area']['content'] = 'Below is a list of all comments which have been "flagged as inappropriate" by site users.';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* No results behavior: Global: Text area */
-  $handler->display->display_options['empty']['text']['id'] = 'area';
+  $handler->display->display_options['empty']['text']['id'] = 'text';
   $handler->display->display_options['empty']['text']['table'] = 'views';
   $handler->display->display_options['empty']['text']['field'] = 'area';
-  $handler->display->display_options['empty']['text']['content'] = 'You have not yet bookmarked any content. Click the "Bookmark this" link when viewing a piece of content to add it to this list.';
+  $handler->display->display_options['empty']['text']['empty'] = TRUE;
+  $handler->display->display_options['empty']['text']['content'] = 'There are currently no comments flagged as inappropriate.';
   $handler->display->display_options['empty']['text']['format'] = 'plain_text';
   /* Relationship: Flags: inappropriate_content_comment */
   $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
@@ -271,10 +272,11 @@ function imagex_content_inappropriate_views_default_views() {
   $handler->display->display_options['header']['area']['content'] = 'Below is a list of all content which have been "flagged as inappropriate" by site users.';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* No results behavior: Global: Text area */
-  $handler->display->display_options['empty']['text']['id'] = 'area';
+  $handler->display->display_options['empty']['text']['id'] = 'text';
   $handler->display->display_options['empty']['text']['table'] = 'views';
   $handler->display->display_options['empty']['text']['field'] = 'area';
-  $handler->display->display_options['empty']['text']['content'] = 'You have not yet bookmarked any content. Click the "Bookmark this" link when viewing a piece of content to add it to this list.';
+  $handler->display->display_options['empty']['text']['empty'] = TRUE;
+  $handler->display->display_options['empty']['text']['content'] = 'There are currently no nodes flagged as inappropriate.';
   $handler->display->display_options['empty']['text']['format'] = 'plain_text';
   /* Relationship: Flags: inappropriate_content_node */
   $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
