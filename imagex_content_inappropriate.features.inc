@@ -7,7 +7,7 @@
 /**
  * Implements hook_views_api().
  */
-function imagex_content_inappropriate_views_api() {
+function imagex_content_inappropriate_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
 
@@ -42,11 +42,11 @@ function imagex_content_inappropriate_flag_default_flags() {
     'show_contextual_link' => 0,
     'flag_confirmation' => 'Are you sure you want to flag this comment as inappropriate?',
     'unflag_confirmation' => 'Are you sure you want to unflag this comment as inappropriate?',
-    'api_version' => 3,
     'module' => 'imagex_content_inappropriate',
     'locked' => array(
       0 => 'name',
     ),
+    'api_version' => 3,
   );
   // Exported flag: "Inappropriate Content".
   $flags['inappropriate_content_node'] = array(
@@ -79,11 +79,11 @@ function imagex_content_inappropriate_flag_default_flags() {
     'i18n' => 0,
     'flag_confirmation' => 'Are you sure you want to flag this content as inappropriate?',
     'unflag_confirmation' => 'Are you sure you want to unflag this content as inappropriate?',
-    'api_version' => 3,
     'module' => 'imagex_content_inappropriate',
     'locked' => array(
       0 => 'name',
     ),
+    'api_version' => 3,
   );
   return $flags;
 
