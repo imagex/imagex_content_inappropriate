@@ -5,30 +5,3 @@
  */
 
 include_once 'imagex_content_inappropriate.features.inc';
-include_once 'imagex_content_inappropriate.admin.inc';
-
-/**
- * implements hook_menu().
- */
-function imagex_content_inappropriate_menu() {
-  $items['admin/config/content/inappropriate'] = array(
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('imagex_content_inappropriate_admin_settings'),
-    'title' => 'Inappropriate Content Flag',
-    'description' => 'Configures specific entity types to allow the Inappropriate Content flag to be set.',
-    'type' => MENU_NORMAL_ITEM,
-    'access callback' => TRUE,
-  );
-  return $items;
-}
-
-/**
- * Implements hook_entity_view_alter().
- */
-function imagex_content_inappropriate_entity_view_alter(&$build, $type) {
-  if(($type == 'node') || ($type == 'comment')) {
-    $enabled_types = variable_get('imagex_content_inappropriate_entity_type_' . $type);
-    //dpm($enabled_types);
-    dpm($type);
-  }
-}
