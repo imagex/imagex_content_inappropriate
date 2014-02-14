@@ -20,16 +20,19 @@ function imagex_content_inappropriate_admin_settings() {
     $entity_bundle = false;
     $entity_info = entity_get_info($entity_type);
     foreach ($entity_info['bundles'] as $bundle_name => $bundle_info) {     
-      $entity_bundle[] = $bundle_info['label'];
+      $entity_bundle[$bundle_info['label']] = $bundle_info['label'];
     }
     $bundles[$entity_type] = $entity_bundle;
-    $form[$entity_type]['imagex_content_inappropriate_entity_type_' . $entity_type] = array( 
+    $form[$entity_type]['imagex_content_inappropriate_entity_type_' . $entity_type] = array(
       '#type' => 'checkboxes',
-      '#title' => '',
       '#options' => $bundles[$entity_type],
-      '#description' => t('By checking these boxes, you will be allowing the corresponding bundles to be flagged as Inappropriate Content.')
+      '#description' => t('By checking these boxes, you will be allowing the corresponding bundles to be flagged as Inappropriate Content.'),
+      '#default_value' => variable_get('imagex_content_inappropriate_entity_type_' . $entity_type),
     );
   }
-  $form['#submit'][] = 'imagex_content_inappropriate_admin_settings_submit';
   return system_settings_form($form);
+}
+
+function imagex_content_inappropriate_valid_entities() {
+  return array('node', 'comment');
 }
