@@ -28,6 +28,7 @@ function imagex_content_inappropriate_views_default_views() {
   $handler->display->display_options['access']['perm'] = 'administer flags';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '25';
@@ -306,6 +307,7 @@ function imagex_content_inappropriate_views_default_views() {
   $handler->display->display_options['access']['perm'] = 'administer flags';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '25';
@@ -641,6 +643,8 @@ function imagex_content_inappropriate_views_default_views() {
   $handler->display->display_options['allow']['fields_override'] = 'fields_override';
   $handler->display->display_options['link_to_view'] = '1';
   $export['imagex_flagged_as_inappropriate_nodes'] = $view;
+
+  features_alter_code('views_view', $export);
 
   return $export;
 }
