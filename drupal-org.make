@@ -6,4 +6,4 @@ core = 7.x
 
 projects[session_api][type] = "module"
 projects[session_api][subdir]="contrib"
-projects[session_api][version] = "1.0-rc1"-
+projects[session_api][version] = "1.0-rc1"
