@@ -5,3 +5,14 @@
  */
 
 include_once 'imagex_content_inappropriate.features.inc';
+
+/**
+ * Implements hook_permission().
+ */
+function imagex_content_inappropriate_permission() {
+  return array(
+    'administer imagex content inappropriate' => array(
+      'title' => t('Administer content inappropriate'),
+    ),
+  );
+}
